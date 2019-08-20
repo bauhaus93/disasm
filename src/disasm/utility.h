@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <inttypes.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -15,5 +16,7 @@ void local_memzero(void *addr, size_t size);
 #ifdef __cplusplus
 }
 #endif
+
+#define OFFSET_ADDR(addr, offset) addr = (void*)(((int8_t*)addr) + offset)
 
 #endif // UTILITY_H

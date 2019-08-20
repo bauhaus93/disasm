@@ -37,7 +37,8 @@ extern "C" {
 #endif
 
 PrefixList *get_prefixes(const void *addr);
-void free_prefix_list(PrefixList *list);
+int count_prefixes(PrefixList* list);
+void free_prefixes(PrefixList *list);
 
 #ifdef __cplusplus
 }

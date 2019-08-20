@@ -3,9 +3,11 @@
 
 #include <inttypes.h>
 
+#include "prefix.h"
 #include "operation.h"
 
 typedef struct {
+    PrefixList* prefixes;
     Operation op;
     uint8_t size;
 } Instruction;

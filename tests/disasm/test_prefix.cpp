@@ -19,7 +19,7 @@ TEST(Prefix, OnePrefixCheck) {
     ASSERT_NE(NULL, prefix);
     ASSERT_EQ(LOCK, prefix->value);
     ASSERT_EQ(NULL, prefix->next);
-    free_prefix_list(prefix);
+    free_prefixes(prefix);
 }
 
 TEST(Prefix, TwoPrefixCheck) {
@@ -30,7 +30,7 @@ TEST(Prefix, TwoPrefixCheck) {
     ASSERT_NE(NULL, prefix->next);
     ASSERT_EQ(REPNE, prefix->next->value);
     ASSERT_EQ(NULL, prefix->next->next);
-    free_prefix_list(prefix);
+    free_prefixes(prefix);
 }
 
 TEST(Prefix, FourPrefixCheck) {
@@ -46,7 +46,7 @@ TEST(Prefix, FourPrefixCheck) {
     ASSERT_NE(NULL, prefix->next->next->next);
     ASSERT_EQ(SEG_OVERRIDE_CS, prefix->next->next->next->value);
     ASSERT_EQ(NULL, prefix->next->next->next->next);
-    free_prefix_list(prefix);
+    free_prefixes(prefix);
 }
 
 TEST(Prefix, FivePrefixExpectFourPrefixes) {
@@ -62,7 +62,7 @@ TEST(Prefix, FivePrefixExpectFourPrefixes) {
     ASSERT_NE(NULL, prefix->next->next->next);
     ASSERT_EQ(SEG_OVERRIDE_CS, prefix->next->next->next->value);
     ASSERT_EQ(NULL, prefix->next->next->next->next);
-    free_prefix_list(prefix);
+    free_prefixes(prefix);
 }
 
 TEST(Prefix, PrefixAfterNonPrefixExpectNull) {

@@ -67,11 +67,19 @@ PrefixList *get_prefixes(const void *addr) {
     return root;
 }
 
-void free_prefix_list(PrefixList *list) {
+int count_prefixes(PrefixList* list) {
+    if (list == NULL) {
+        return 0;
+    } else {
+        return 1 + count_prefixes(list->next);
+    }
+}
+
+void free_prefixes(PrefixList *list) {
     if (list == NULL) {
         return;
     }
-    free_prefix_list(list->next);
+    free_prefixes(list->next);
     local_free(list);
 }
 
